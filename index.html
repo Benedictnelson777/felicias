@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <main class="container">
+        <!-- Theme Selector -->
+        <div class="theme-selector">
+            <button class="theme-btn" data-theme="classic" title="Classic Romance">💗</button>
+            <button class="theme-btn" data-theme="midnight" title="Midnight Blue">🌙</button>
+            <button class="theme-btn" data-theme="golden" title="Golden Hour">🌅</button>
+            <button class="theme-btn active" id="music-toggle" title="Toggle Music">🎵</button>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-container" id="countdown">
+            <h3>Time Until Our Special Day</h3>
+            <div class="countdown-display">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card" id="question-card">
+            <div class="emoji-container">
+                <span class="main-emoji">🥺</span>
+            </div>
+            <h1>Will you be my <span class="accent">Valentine</span>?</h1>
+            <p>I've been thinking about this for a while...</p>
+
+            <div class="btn-group">
+                <button id="yes-btn" class="btn primary">YES! ❤️</button>
+                <button id="no-btn" class="btn secondary">No 💔</button>
+            </div>
+        </div>
+
+        <div class="glass-card hidden" id="success-card">
+            <div class="emoji-container">
+                <span class="main-emoji">💖</span>
+            </div>
+            <h1>YAAAAAY!</h1>
+            <p>You've made me the happiest person ever! 🥰</p>
+
+            <div class="letter-wrapper">
+                <div class="letter" id="heartfelt-letter">
+                    <div class="letter-content">
+                        <p class="handwritten" id="letter-line-1">hi my love 🥺❤️</p>
+                        <p class="handwritten" id="letter-line-2">i had not thought of this but better late than never😂
+                        </p>
+                        <p class="handwritten" id="letter-line-3">najua ushasema yes juu huna option😺,,,,,i love you so
+                            much baby and i just can't wait for us to experience so much more together</p>
+                        <p class="handwritten" id="letter-line-4">if I'm to list everything that makes me happy about us
+                            siezi maliza ,but the best of them all is the love we share and i just can't wait to see
+                            where it takes us</p>
+                        <p class="handwritten signature" id="letter-line-5">happy Valentine’s day ma Chérie❤️</p>
+                    </div>
+                    <div class="wax-seal">❤️</div>
+                </div>
+            </div>
+
+            <div class="date-badge">February 14, 2026</div>
+
+
+
+
+            <div class="memories-container">
+                <div class="memories-header">
+                    <h2 class="section-title">Our Favorite Memories</h2>
+                    <button class="upload-btn" id="upload-trigger">+ Add Photos</button>
+                    <input type="file" id="photo-upload" accept="image/*" multiple style="display: none;">
+                </div>
+                <div class="memory-grid" id="memory-grid">
+                    <div class="memory-card polaroid" data-index="0">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.11.jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">Adventures Together</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                    <div class="memory-card polaroid" data-index="1">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.13 (1).jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">Making Beautiful Memories</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                    <div class="memory-card polaroid" data-index="2">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.13.jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">That Perfect Day</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                    <div class="memory-card polaroid" data-index="3">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.15.jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">Forever Smiling</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                    <div class="memory-card polaroid" data-index="4">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.17 (1).jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">Our Journey Continues</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                    <div class="memory-card polaroid" data-index="5">
+                        <div class="polaroid-image">
+                            <img src="Assets/WhatsApp Image 2026-02-11 at 09.10.17.jpeg" alt="Our Memory">
+                        </div>
+                        <p class="polaroid-caption">Cherished Moments</p>
+                        <p class="polaroid-date">2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-prev">&#8249;</button>
+            <button class="lightbox-next">&#8250;</button>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="Memory">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Celebration Overlays -->
+    <div class="freeze-overlay" id="freeze-overlay"></div>
+    <div class="flash-overlay" id="flash-overlay"></div>
+
+    <!-- Enhanced Music Player -->
+    <div class="music-player" id="music-player">
+        <div class="player-controls">
+            <button class="player-btn" id="play-pause-btn" title="Play/Pause">
+                <span class="play-icon">▶️</span>
+                <span class="pause-icon" style="display: none;">⏸️</span>
+            </button>
+            <div class="track-info">
+                <span class="track-title" id="track-title">Feel The Love - Kahuti ft Kinoti</span>
+                <div class="progress-bar" id="progress-container">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            <div class="volume-control">
+                <button class="volume-btn" id="volume-btn">🔊</button>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70">
+            </div>
+        </div>
+        <div class="playlist-toggle">
+            <button class="playlist-btn" id="playlist-btn">🎵 Playlist</button>
+        </div>
+        <div class="playlist-container" id="playlist-container" style="display: none;">
+            <div class="playlist-item active" data-track="0">
+                <span>💕 Feel The Love - Kahuti ft Kinoti</span>
+            </div>
+            <div class="playlist-item" data-track="1">
+                <span>✨ Happy Ever After</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="bg-music" loop>
+        <source src="Assets/Kahuti ft Kinoti-Feel The Love.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="track-2" loop>
+        <source src="Assets/happy ever after.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="whoosh-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443c.mp3"></audio>
+    <audio id="click-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_847c9b9be8.mp3"></audio>
+    <audio id="confetti-sound" src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_1f9a38f3e6.mp3"></audio>
+
+    <!-- Enhanced Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Mouse Trail Container -->
+    <div id="mouse-trail-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
