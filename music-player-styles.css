@@ -1,1 +1,226 @@
+/* Enhanced Music Player */
+.music-player {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    transform: none;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 15px 20px;
+    z-index: 6000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    transition: all 0.3s ease;
+}
 
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player-btn {
+    background: var(--primary);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+}
+
+.player-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.5);
+}
+
+.track-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.track-title {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 10px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.volume-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.volume-btn:hover {
+    transform: scale(1.2);
+}
+
+.volume-slider {
+    width: 80px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 77, 109, 0.4);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(255, 77, 109, 0.4);
+}
+
+.playlist-toggle {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.playlist-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.playlist-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--primary);
+}
+
+.playlist-container {
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 10px;
+}
+
+.playlist-item {
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.playlist-item.active {
+    background: var(--primary);
+    color: white;
+}
+
+.playlist-item.active span {
+    font-weight: 600;
+}
+
+.upload-track {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.upload-label {
+    display: block;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px dashed var(--glass-border);
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.upload-label:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Remove old music toggle from theme selector */
+#music-toggle {
+    display: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .music-player {
+        min-width: 90%;
+        top: 10px;
+        left: 5%;
+        transform: none;
+    }
+
+    .volume-control {
+        display: none;
+    }
+
+    .track-title {
+        font-size: 0.8rem;
+    }
+}
